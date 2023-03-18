@@ -13,11 +13,29 @@ const bookList = [
   { title: "Moby Dick", author: "Herman Melville" },
 ];
 
+const addBook = (title,author) => bookList.push({ title, author });
+const removeBook = (title,author) => {
+    const index1 = bookList.findIndex(book => book.title === title);
+    const index2 = bookList.findIndex(book => book.author === author);
+    console.log(index1,index2)
+    if (index1 > -1 && index2 > -1 && index1 === index2){
+        bookList.splice(index1, 1);
+    }
+} 
+const listBooks = () => {
+    for (const bookIndex in bookList){
+        console.log(bookList[bookIndex].title)
+    }
+}
+removeBook("Don Quixote", "Miguel de Cervantes")
+listBooks()
+
 /* Intermediate Challenge */
 
 /* (4) Write a one-line arrow function that takes in a number and returns a string stating whether the
   number is positive or negative using a ternary operator (assume the number will never be zero) */
-
+const posneg = (number) => number > 0;
+console.log(posneg(-1));
 /* (5) Write a switch statement for a 'day' variable that prints out something based off of what day of
   the week it is i.e. if it's Monday, print "good luck" or wednesday print "hump day" or friday print "party" */
 
